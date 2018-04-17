@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Rock</title>
+</head>
+<body>
+   
+   
+   
+    <script>
+        function computerPlay() {
+            let result = "";
+            let random = genNum();
+            
+            if(random === 1) {
+                result = "rock";
+            } else if (random === 2) {
+                result = "paper";
+            } else if (random === 3) {
+                result = "scissors";
+            }
+            
+            return result;
+        }
+              
+        function singleRound(playerSelection, computerSelection) {
+            if((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" && computerSelection == "rock") || (playerSelection == "scissors" && computerSelection == "paper")) {
+                console.log("You win");
+            } else if (playerSelection == computerSelection) {
+                console.log("we are even");
+            } else {
+                console.log("You lose, I choose " + computerSelection);
+            }
+        }
+        
+        function genNum() {
+            let result = Math.floor((Math.random()*3) + 1);
+            return result;
+        }
+        
+        function getPlayerSelection() {
+            return prompt("What is your choice").toLowerCase();
+        }
+        
+        singleRound(getPlayerSelection(), computerPlay());
+    </script>
+</body>
+</html>
